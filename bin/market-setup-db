@@ -38,7 +38,7 @@ def parse_args(args):
 
 
 def setup_db(host, port, name):
-    conn = r.connect(host=host, port=port)
+    conn = r.connect(host=host, port=port).repl()
     print('Connection opened')
     try:
         print('Creating database:', name)

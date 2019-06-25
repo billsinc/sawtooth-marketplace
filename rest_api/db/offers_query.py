@@ -13,7 +13,8 @@
 # limitations under the License.
 # ------------------------------------------------------------------------------
 
-import rethinkdb as r
+import rethinkdb as rdb
+r = rdb.RethinkDB()
 from rethinkdb.errors import ReqlNonExistenceError
 
 from api.errors import ApiBadRequest
