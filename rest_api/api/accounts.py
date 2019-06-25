@@ -88,7 +88,7 @@ async def create_account(request):
 async def get_all_accounts(request):
     """Fetches complete details of all Accounts in state"""
     account_resources = await accounts_query.fetch_all_account_resources(
-        request.app.config.DB_CONN)
+        request.app.)
     return response.json(account_resources)
 
 
