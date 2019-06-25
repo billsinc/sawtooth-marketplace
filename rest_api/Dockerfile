@@ -28,7 +28,7 @@ RUN pip3 install \
     bcrypt \
     itsdangerous \
     rethinkdb \
-    sanic \
+    'sanic==19.3.1' \
     pycrypto
 
 WORKDIR /project/sawtooth-marketplace
