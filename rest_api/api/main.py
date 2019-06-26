@@ -21,7 +21,6 @@ from signal import signal, SIGINT
 import sys
 
 import rethinkdb as rdb
-r = rdb.RethinkDB()
 
 from sanic import Sanic
 
@@ -61,6 +60,7 @@ DEFAULT_CONFIG = {
 
 async def open_connections(app):
     LOGGER.warning('opening database connection')
+    r = rdb.RethinkDB()
     r.set_loop_type('asyncio')
     app.config.DB_CONN = await r.connect(
         host=app.config.DB_HOST,

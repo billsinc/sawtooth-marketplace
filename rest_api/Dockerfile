@@ -15,6 +15,7 @@
 
 FROM ubuntu:16.04
 
+RUN apt-get update
 RUN echo "deb apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 8AA7AF1F1091A5FD" && \
     echo 'deb http://repo.sawtooth.me/ubuntu/1.0/stable xenial universe' >> /etc/apt/sources.list && \
     apt-get update && \
@@ -24,11 +25,13 @@ RUN echo "deb apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 
         python3-sawtooth-signing \
         python3-sawtooth-rest-api
 
+RUN pip3 install --upgrade pip
+
 RUN pip3 install \
     bcrypt \
     itsdangerous \
     rethinkdb \
-    'sanic==19.3.1' \
+    'sanic==18.12' \
     pycrypto
 
 WORKDIR /project/sawtooth-marketplace
